@@ -1,0 +1,1 @@
+export {TrainingAdd} from "./TrainingAdd"
