@@ -34,6 +34,8 @@ function App() {
   const editItem = function(item: Item) {
     const newItems: Item[] = [...items];
     const foundIndex = items.findIndex((value: Item) => value.date.getTime() === item.date.getTime());
+    console.log(`newItems ${newItems}`)
+    console.log(`foundIndex ${foundIndex}`)
   }
 
   const deleteItem = function(item: Item) {
