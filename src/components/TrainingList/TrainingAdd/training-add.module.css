@@ -1,3 +1,38 @@
 .container {
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+}
 
+.date-container {
+    display: flex;
+    flex-direction: column;
+    width: 33.33%;
+    align-items: center;
+}
+
+.date-input {
+    max-width: 200px;
+}
+
+.distance-container {
+    display: flex;
+    flex-direction: column;
+    width: 33.33%;
+    align-items: center;
+}
+
+.distance-input {
+    max-width: 200px;
+}
+
+.add-button-container {
+    display: flex;
+    flex-direction: column;
+    width: 33.33%;
+    justify-content: end;
+}
+
+.add-button {
+    max-width: 80px;
 }

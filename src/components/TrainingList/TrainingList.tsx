@@ -1,12 +1,17 @@
-import React from 'react';
 import {TrainingAdd} from "./TrainingAdd";
 import styles from "./training-list.module.css"
 import {TrainingItem} from "./TrainingItem";
+import {Item} from "../../App";
 
-export function TrainingList(props) {
+export type TrainingListProps = {
+    items: Item[]
+    addItem: (item: Item) => void
+}
+
+export function TrainingList(props: TrainingListProps) {
     return (
         <>
-            <TrainingAdd></TrainingAdd>
+            <TrainingAdd addItem={props.addItem}></TrainingAdd>
             <div className={styles.container}>
                 <div className={styles.header}>
                     <span>Дата (ДД.ММ.ГГ)</span>
@@ -14,9 +19,7 @@ export function TrainingList(props) {
                     <span>Действия</span>
                 </div>
                 <div className={styles.content}>
-                    <TrainingItem date={"20.07.2019"} distance={5.7}></TrainingItem>
-                    <TrainingItem date={"19.07.2019"} distance={14.2}></TrainingItem>
-                    <TrainingItem date={"18.07.2019"} distance={3.4}></TrainingItem>
+                    {props.items.map(item => <TrainingItem date={item.date} distance={item.distance}></TrainingItem>)}
                 </div>
             </div>
         </>

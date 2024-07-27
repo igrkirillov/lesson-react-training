@@ -1,10 +1,10 @@
-import React from 'react';
 import styles from "./training-item.module.css"
 import editIcon from "./icons/edit.png"
 import removeIcon from "./icons/remove.png"
+import {dateToStr} from "../../../dateUtils";
 
 export type TrainingItemProps = {
-    date: string,
+    date: Date,
     distance: number
 }
 
@@ -12,7 +12,7 @@ export function TrainingItem(props: TrainingItemProps) {
     const {date, distance} = props;
     return (
         <div className={styles.container}>
-            <span>{date}</span>
+            <span>{dateToStr(date)}</span>
             <span>{distance}</span>
             <div>
                 <a href="#" className={styles.action}>
