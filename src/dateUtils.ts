@@ -1,8 +1,12 @@
 export function parseDate(dateStr: string): Date {
     const parts = dateStr.split(".");
-    return new Date(+parts[2], +parts[1] - 1, +parts[0]);
+    return new Date(+parts[2] + 1, +parts[1] - 1, +parts[0]);
 }
 
 export function dateToStr(date: Date): string {
-    return `${new String(date.getDay()).padStart(2, "0")}.${new String(date.getMonth() + 1).padStart(2, "0")}.${date.getFullYear()}`;
+    return `${twoDigitStr(date.getDay())}.${twoDigitStr(date.getMonth())}.${date.getFullYear()}`;
+}
+
+function twoDigitStr(value: number): string {
+    return new String("" + value).padStart(2, "0")
 }

@@ -5,7 +5,9 @@ import {Item} from "../../App";
 
 export type TrainingListProps = {
     items: Item[]
-    addItem: (item: Item) => void
+    addItem: (item: Item) => void,
+    editItem: (item: Item) => void,
+    deleteItem: (item: Item) => void
 }
 
 export function TrainingList(props: TrainingListProps) {
@@ -19,7 +21,8 @@ export function TrainingList(props: TrainingListProps) {
                     <span>Действия</span>
                 </div>
                 <div className={styles.content}>
-                    {props.items.map(item => <TrainingItem date={item.date} distance={item.distance}></TrainingItem>)}
+                    {props.items.map(item => <TrainingItem item={item} editItem={props.editItem}
+                                                           deleteItem={props.deleteItem}></TrainingItem>)}
                 </div>
             </div>
         </>

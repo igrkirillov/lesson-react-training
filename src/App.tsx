@@ -30,8 +30,23 @@ function App() {
     });
     setItems(sortedItems);
   }
+
+  const editItem = function(item: Item) {
+    const newItems: Item[] = [...items];
+    const foundIndex = items.findIndex((value: Item) => value.date.getTime() === item.date.getTime());
+  }
+
+  const deleteItem = function(item: Item) {
+    const newItems: Item[] = [...items];
+    const foundIndex = items.findIndex((value: Item) => value.date.getTime() === item.date.getTime());
+    if (foundIndex >= 0) {
+      newItems.splice(foundIndex, 1);
+      setItems(newItems);
+    }
+  }
+
   return (
-    <TrainingList items={items} addItem={addItem}></TrainingList>
+    <TrainingList items={items} addItem={addItem} editItem={editItem} deleteItem={deleteItem}></TrainingList>
   )
 }
 

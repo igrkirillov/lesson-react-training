@@ -10,11 +10,13 @@ export type TrainingAddProps = {
 export function TrainingAdd(props: TrainingAddProps) {
     const onSubmit =  function (event: FormEvent) {
         event.preventDefault();
+        const form: HTMLFormElement = event.target as HTMLFormElement;
         const item: Item = {
-            date: parseDate(((event.target as HTMLFormElement)[0] as HTMLInputElement).value),
-            distance: +(((event.target as HTMLFormElement)[1] as HTMLInputElement).value)
+            date: parseDate((form[0] as HTMLInputElement).value),
+            distance: +((form[1] as HTMLInputElement).value)
         };
         props.addItem(item);
+        form.reset();
     }
     return (
         <form className={styles.container} onSubmit={onSubmit}>
