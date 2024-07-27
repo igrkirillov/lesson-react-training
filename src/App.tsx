@@ -36,6 +36,7 @@ function App() {
     const foundIndex = items.findIndex((value: Item) => value.date.getTime() === item.date.getTime());
     console.log(`newItems ${newItems}`)
     console.log(`foundIndex ${foundIndex}`)
+    alert("Редактирование пока не реализовано!\nУдалите и добавьте заново.");
   }
 
   const deleteItem = function(item: Item) {
