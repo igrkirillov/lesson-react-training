@@ -1,6 +1,7 @@
 import './App.css'
 import {TrainingList} from "./components/TrainingList";
 import {useState} from "react";
+import {TrainingAdd} from "./components/TrainingAdd";
 
 export type Item = {
   date: Date,
@@ -49,7 +50,10 @@ function App() {
   }
 
   return (
-    <TrainingList items={items} addItem={addItem} editItem={editItem} deleteItem={deleteItem}></TrainingList>
+      <>
+        <TrainingAdd addItem={addItem}></TrainingAdd>
+        <TrainingList items={items} addItem={addItem} editItem={editItem} deleteItem={deleteItem}></TrainingList>
+      </>
   )
 }
 

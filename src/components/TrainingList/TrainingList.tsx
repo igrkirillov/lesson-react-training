@@ -1,4 +1,3 @@
-import {TrainingAdd} from "./TrainingAdd";
 import styles from "./training-list.module.css"
 import {TrainingItem} from "./TrainingItem";
 import {Item} from "../../App";
@@ -12,19 +11,16 @@ export type TrainingListProps = {
 
 export function TrainingList(props: TrainingListProps) {
     return (
-        <>
-            <TrainingAdd addItem={props.addItem}></TrainingAdd>
-            <div className={styles.container}>
-                <div className={styles.header}>
-                    <span>Дата (ДД.ММ.ГГ)</span>
-                    <span>Пройдено км</span>
-                    <span>Действия</span>
-                </div>
-                <div className={styles.content}>
-                    {props.items.map(item => <TrainingItem item={item} editItem={props.editItem}
-                                                           deleteItem={props.deleteItem}></TrainingItem>)}
-                </div>
+        <div className={styles.container}>
+            <div className={styles.header}>
+                <span>Дата (ДД.ММ.ГГ)</span>
+                <span>Пройдено км</span>
+                <span>Действия</span>
             </div>
-        </>
+            <div className={styles.content}>
+                {props.items.map(item => <TrainingItem key={item.date.toDateString()} item={item} editItem={props.editItem}
+                                                       deleteItem={props.deleteItem}></TrainingItem>)}
+            </div>
+        </div>
     );
 }
